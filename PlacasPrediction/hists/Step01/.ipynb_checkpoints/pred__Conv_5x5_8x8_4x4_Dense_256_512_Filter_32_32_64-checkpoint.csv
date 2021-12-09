@@ -1,0 +1,47 @@
+,precision,recall,f1-score,support
+Speed limit (20km/h),0.0,0.0,0.0,60.0
+Speed limit (30km/h),0.0,0.0,0.0,720.0
+Speed limit (50km/h),0.0,0.0,0.0,750.0
+Speed limit (60km/h),0.0,0.0,0.0,450.0
+Speed limit (70km/h),0.0,0.0,0.0,660.0
+Speed limit (80km/h),0.0,0.0,0.0,630.0
+End of speed limit (80km/h),0.0,0.0,0.0,150.0
+Speed limit (100km/h),0.0,0.0,0.0,450.0
+Speed limit (120km/h),0.0,0.0,0.0,450.0
+No passing,0.0,0.0,0.0,480.0
+No passing for vechiles over 3.5 metric tons,0.0,0.0,0.0,660.0
+Right-of-way at the next intersection,0.0,0.0,0.0,420.0
+Priority road,0.0,0.0,0.0,690.0
+Yield,0.0,0.0,0.0,720.0
+Stop,0.0,0.0,0.0,270.0
+No vechiles,0.0,0.0,0.0,210.0
+Vechiles over 3.5 metric tons prohibited,0.0,0.0,0.0,150.0
+No entry,0.028503562945368172,1.0,0.05542725173210161,360.0
+General caution,0.0,0.0,0.0,390.0
+Dangerous curve to the left,0.0,0.0,0.0,60.0
+Dangerous curve to the right,0.0,0.0,0.0,90.0
+Double curve,0.0,0.0,0.0,90.0
+Bumpy road,0.0,0.0,0.0,120.0
+Slippery road,0.0,0.0,0.0,150.0
+Road narrows on the right,0.0,0.0,0.0,90.0
+Road work,0.0,0.0,0.0,480.0
+Traffic signals,0.0,0.0,0.0,180.0
+Pedestrians,0.0,0.0,0.0,60.0
+Children crossing,0.0,0.0,0.0,150.0
+Bicycles crossing,0.0,0.0,0.0,90.0
+Beware of ice/snow,0.0,0.0,0.0,150.0
+Wild animals crossing,0.0,0.0,0.0,270.0
+End of all speed and passing limits,0.0,0.0,0.0,60.0
+Turn right ahead,0.0,0.0,0.0,210.0
+Turn left ahead,0.0,0.0,0.0,120.0
+Ahead only,0.0,0.0,0.0,390.0
+Go straight or right,0.0,0.0,0.0,120.0
+Go straight or left,0.0,0.0,0.0,60.0
+Keep right,0.0,0.0,0.0,690.0
+Keep left,0.0,0.0,0.0,90.0
+Roundabout mandatory,0.0,0.0,0.0,90.0
+End of no passing,0.0,0.0,0.0,60.0
+End of no passing by vechiles over 3.5 metric tons,0.0,0.0,0.0,90.0
+accuracy,0.028503562945368172,0.028503562945368172,0.028503562945368172,0.028503562945368172
+macro avg,0.0006628735568690273,0.023255813953488372,0.0012890058542349213,12630.0
+weighted avg,0.0008124531005805655,0.028503562945368172,0.0015798741586347254,12630.0
