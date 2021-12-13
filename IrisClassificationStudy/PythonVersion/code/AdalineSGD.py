@@ -2,31 +2,35 @@ import numpy as np
 import pandas as pd
 
 
-class AdalineSGC:
+class AdalineSGD:
 
-    def __init__(self, eta=0.01, n_iter=10, random_seed=45, suffle=True):
+    def __init__(self, eta=0.01, n_iter=1, random_seed=45, shuffle=True):
         self.eta = eta
         self.n_iter = n_iter
         self.random_seed = random_seed
-        self.suffle = shuffle
+        self.shuffle = shuffle
         self.w = []
         self.initialized_w= False
         self.cost = []
 
     def fit(self, X, Y):
         self.initializeWeights(X.shape[1])
-
+        # self.shuffleData(np.array(X),np.array(Y))
         for i in range(self.n_iter):
             cost_temp = []
 
             if self.shuffle:
-                X, Y = self.shuffleData(X, Y)
+                X_s, Y_s = self.shuffleData(X, Y)
 
-            for xi, target in zip(X, Y):
-                cost_temp.append(self.updateWeghts(xi, target))
+            # print(X_s[0])
+            for xi, target in zip(X_s, Y_s):
+                # print(xi)
+                cost_temp.append(self.updateWeights(xi, target))
 
-            avg_cost = sum(cost_temp) / len(y)
+            avg_cost = sum(cost_temp) / len(Y_s)
             self.cost.append(avg_cost)
+
+        print(self.cost)
         return self
 
     def partialFit(self, X, Y):
@@ -50,9 +54,10 @@ class AdalineSGC:
     def predict(self, X):
         return np.where(self.activation(self.net_input(X)) >=0.0, 1, -1 )
 
-    def updateWeghts(self, X, Y):
+    def updateWeights(self, X, Y):
         output = self.activation(self.net_input(X))
         error = (Y - output)
+
 
         self.w[1:] += self.eta * X.dot(error)
         self.w[0] += self.eta * error.sum()
@@ -68,5 +73,6 @@ class AdalineSGC:
         self.initialized_w = True
 
     def shuffleData(self, X, Y):
-        r = self.rgen.permutation(len(y))
+        r = self.rgen.permutation(len(Y))
+
         return X[r], Y[r]

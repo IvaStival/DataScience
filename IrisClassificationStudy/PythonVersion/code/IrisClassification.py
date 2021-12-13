@@ -4,9 +4,10 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-from LogisticRegression import LogisticRegression
+from LogisticRegressionGD import LogisticRegressionGD
 from Perceptron import Perceptron
 from Adaline import Adaline
+from AdalineSGD import AdalineSGD
 from Plot import Plot
 
 class IrisClassification:
@@ -142,7 +143,7 @@ class IrisClassification:
               [-1.05093052, -0.87559625 ],
               [ 1.76825716,  1.06708956 ] ];
 
-        y_bin = [ 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1 ]
+        y_bin = np.array([ 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1 ])
 
         y = np.where(y_bin == 0, -1, 1)
 
@@ -155,7 +156,12 @@ class IrisClassification:
 
 
         # print(Y_train)
-        ada = Adaline(alpha=0.01, n_iter=10)
-        ada.fit(pd.DataFrame(x), y)
+        ada = AdalineSGD(eta=0.1, n_iter=10)
+        ada.fit(np.array(x), np.array(y))
+
+        # print(pd.DataFrame(y).iloc[[1,2,3], ])
 
         # print(ada.costs)
+
+        # lr = LogisticRegressionGD()
+        # lr.fit(x, y)
