@@ -156,12 +156,12 @@ class IrisClassification:
 
 
         # print(Y_train)
-        ada = AdalineSGD(eta=0.1, n_iter=10)
-        ada.fit(np.array(x), np.array(y))
+        # ada = AdalineSGD(eta=0.1, n_iter=10)
+        # ada.fit(np.array(x), np.array(y))
 
         # print(pd.DataFrame(y).iloc[[1,2,3], ])
 
         # print(ada.costs)
 
-        # lr = LogisticRegressionGD()
-        # lr.fit(x, y)
+        lr = LogisticRegressionGD()
+        lr.fit(np.array(x), np.array(y))

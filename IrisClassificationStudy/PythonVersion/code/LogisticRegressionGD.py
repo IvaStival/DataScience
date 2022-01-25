@@ -19,10 +19,11 @@ class LogisticRegressionGD:
             output = self.activation(y_line)
             error = (Y - output)
 
-            self.uptateWeights(error)
+            self.updateWeights(X, error)
 
-            cost = (-y.dot(np.log(output)) - (1 - y).dot(np.log(1 - output)))
+            cost = (-Y.dot(np.log(output)) - (1 - Y).dot(np.log(1 - output)))
             self.cost.append(cost)
+        print(self.cost)
 
     def net_input(self, X):
         return np.dot(X, self.w[1:]) + self.w[0]
@@ -33,6 +34,6 @@ class LogisticRegressionGD:
     def activation(self, y_line):
         return 1.0 / (1.0 + np.exp(-np.clip(y_line, -250, 250)))
 
-    def updateWeights(self, error):
+    def updateWeights(self, X, error):
         self.w[0] += self.eta * error.sum()
         self.w[1:] += self.eta * X.T.dot(error)
