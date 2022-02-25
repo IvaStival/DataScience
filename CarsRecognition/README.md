@@ -66,5 +66,6 @@ The execution time was: <EXECUTION TIME>
 ![alt text](https://github.com/IvaStival/DataScience/blob/208a4f761f9d1b6817fd87715438706e59e6322c/CarsRecognition/images/pred3.jpg?raw=true)
 ![alt text](https://github.com/IvaStival/DataScience/blob/edc0a32ffab42a1b0a24d0b06fcfd80fe0ec8250/CarsRecognition/images/pred4.JPG?raw=true)
 
+## Conclusion
 As we can see the model found several cars, but return wrong results as cars.
 The conclusion is that this problem is difficult because of some environment similarities with cars. A idea is to use modern methods as YOLO to see if it can resolve this problems and improve the results, and increasing the dataset size so the model can have more sample to learn from.
