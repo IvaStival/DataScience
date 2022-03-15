@@ -32,7 +32,7 @@ This was only a study to understand all the process used to solve a DataScience 
 The best thing for me was the understand of the errors metrics. I could learn all math involved and how each one can be applied.
 
 # References
-https://www.kaggle.com/yasserh/song-popularity-prediction-best-ml-models
-https://www.kaggle.com/prashant111/a-guide-on-xgboost-hyperparameters-tuning
-https://www.analyticsvidhya.com/blog/2021/05/know-the-best-evaluation-metrics-for-your-regression-model/
-https://neptune.ai/blog/performance-metrics-in-machine-learning-complete-guide
+- https://www.kaggle.com/yasserh/song-popularity-prediction-best-ml-models
+- https://www.kaggle.com/prashant111/a-guide-on-xgboost-hyperparameters-tuning
+- https://www.analyticsvidhya.com/blog/2021/05/know-the-best-evaluation-metrics-for-your-regression-model/
+- https://neptune.ai/blog/performance-metrics-in-machine-learning-complete-guide
