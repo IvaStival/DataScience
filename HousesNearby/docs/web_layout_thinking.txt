@@ -1,0 +1,6 @@
+- Main page:
+  - Left button bar;
+    - A Predict Value button;
+    - Info House button;
+  - Main draw container;
+    - in the beggining it has a Project Title and when click on each left button show the content of each one of them
