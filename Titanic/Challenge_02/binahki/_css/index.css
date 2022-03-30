@@ -1,0 +1,26 @@
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 35px
+}
+
+#button-sec {
+  margin: 10px 0 0px;
+}
+
+#data {
+  width: 180px;
+}
+
+#div_scrowll {
+  overflow-y:auto;
+  height: 300px;
+  margin: 10px 0px 0px 0px;
+  border: 2px solid #a8a8a8;
+}
