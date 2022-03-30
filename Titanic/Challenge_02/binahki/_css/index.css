@@ -18,7 +18,14 @@ button {
   width: 180px;
 }
 
-#div_scrowll {
+#div_scrowll_input {
+  overflow-y:auto;
+  height: 300px;
+  margin: 10px 0px 0px 0px;
+  border: 2px solid #a8a8a8;
+}
+
+#div_scrowll_validation {
   overflow-y:auto;
   height: 300px;
   margin: 10px 0px 0px 0px;
