@@ -10,6 +10,19 @@ button {
   height: 35px
 }
 
+th {
+  text-align: center;
+  color: #575757;
+}
+
+td {
+  text-align: center;
+}
+
+.container {
+  max-width: 1400px;
+}
+
 #button-sec {
   margin: 10px 0 0px;
 }
@@ -28,6 +41,13 @@ button {
 #div_scrowll_validation {
   overflow-y:auto;
   height: 300px;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 100px 0px;
   border: 2px solid #a8a8a8;
+}
+
+#name {
+  text-align: center;
+  margin: -60px;
+  color: #21252969;
+  font-style: oblique;
 }

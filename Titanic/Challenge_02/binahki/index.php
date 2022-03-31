@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="_css/index.css">
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="_js/jquery-csv.js"></script>
 <script type="text/javascript" src="_js/my_scripts.js"></script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 <body>
   <div class="container">
@@ -37,9 +38,9 @@
                   <th scope="col">Corrent Fase 1</th>
                   <th scope="col">Corrent Fase 2</th>
                   <th scope="col">Corrent Fase 3</th>
-                  <th scope="col">Corrent Tensão 1</th>
-                  <th scope="col">Corrent Tensão Linha 1 2</th>
-                  <th scope="col">Corrent Tensão 3</th>
+                  <th scope="col">Tensão Fase 1</th>
+                  <th scope="col">Tensão Fase 2</th>
+                  <th scope="col">Tensão Fase 3</th>
               </tr>
             </thead>
 
@@ -88,6 +89,7 @@
                     <th scope="col">angulo tensao f1</th>
                     <th scope="col">angulo tensao f2</th>
                     <th scope="col">angulo tensao f3</th>
+                    <th scope="col">Corrent Total</th>
                   </tr>
               </thead>
 
@@ -95,8 +97,10 @@
           </table>
           </div>
 
+
       </div>
     </div>
   </div>
+  <div id="name"> By Iva Reinaldo Stival </div>
 
 </html>
