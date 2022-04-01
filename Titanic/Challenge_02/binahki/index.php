@@ -14,16 +14,19 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class=>Binahki Challenge</h1>
-        <h4 class=>Enter the Input File:</h4>
-        <form id="form">
-        <div>
-            <button onclick="importData('user-input1')">Load File</button>
-            <input class="form-control" id="user-input1" placeholder="Input File Path ...">
-        </div>
 
-        <h4 class=>Enter the Validation File:</h4>
-        <button onclick="importData('user-input2')">Load File</button>
-        <input class="form-control" id="user-input2" placeholder="Validation File Path ...">
+        <form id="form">
+          <h4 class=>Enter the Input File:</h4>
+          <div id="input_labels">
+              <button onclick="importData('user-input1')">Load File</button>
+              <input class="form-control" id="user-input1" placeholder="Input File Path ...">
+          </div>
+
+          <h4 class=>Enter the Validation File:</h4>
+          <div id="input_labels">
+            <button onclick="importData('user-input2')">Load File</button>
+            <input class="form-control" id="user-input2" placeholder="Validation File Path ...">
+          </div>
 
         </form>
         <button id="button-sec" class="btn btn-secondary" onclick="runEnter()">Load Files</button>

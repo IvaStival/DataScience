@@ -93,6 +93,9 @@ function generateHtmlTableValidation(body_id, data, calc_data) {
   }
 };
 
+function calculateIndeces(corr_array, ten_array, corr_neutro, factor_array){
+
+}
 
 function calculate(data_val, data_input){
 
@@ -109,10 +112,7 @@ function calculate(data_val, data_input){
     var ten_f2 = parseFloat(data_input[i][6]);
     var ten_f3 = parseFloat(data_input[i][7]);
 
-
-
     var corr_total = corr_f1 + corr_f2 + corr_f3;
-    console.log(corr_total)
 
     if(corr_neutro){
       // THE TIME VARIATION IS ABOUT 20s, IN HOURS IS EQUAL TO 0.005555
@@ -172,17 +172,22 @@ function calculate(data_val, data_input){
       var dec_sep_energy = 4;
       var dec_sep_all = 2;
 
-      result.push(["", energy_active_f1.toFixed(dec_sep_energy), energy_active_f2.toFixed(dec_sep_energy), energy_active_f3.toFixed(dec_sep_energy),
-                                  energy_active_total.toFixed(dec_sep_energy), energy_apar_f1.toFixed(dec_sep_energy), energy_apar_f2.toFixed(dec_sep_energy),
-                                  energy_apar_f3.toFixed(dec_sep_energy), energy_apar_total.toFixed(dec_sep_energy), energy_reactive_f1.toFixed(dec_sep_energy),
-                                  energy_reactive_f2.toFixed(dec_sep_energy), energy_reactive_f3.toFixed(dec_sep_energy), energy_reactive_total.toFixed(dec_sep_energy),
-                                  "", "", "", "",
-                                  pot_appar_f1.toFixed(dec_sep_all), pot_appar_f2.toFixed(dec_sep_all), pot_appar_f3.toFixed(dec_sep_all), pot_apar_total.toFixed(dec_sep_all),
-                                  pot_active_f1.toFixed(dec_sep_all), pot_active_f2.toFixed(dec_sep_all), pot_active_f3.toFixed(dec_sep_all), pot_active_total.toFixed(dec_sep_all),
-                                  pot_reactive_f1.toFixed(dec_sep_all), pot_reactive_f2.toFixed(dec_sep_all), pot_reactive_f3.toFixed(dec_sep_all), pot_reactive_total.toFixed(dec_sep_all),
-                                  "",
-                                  ten_f1_f2.toFixed(dec_sep_all), ten_f2_f3.toFixed(dec_sep_all), ten_f3_f1.toFixed(dec_sep_all),
-                                  "", "", "", corr_total.toFixed(dec_sep_all)]);
+      result.push(["", energy_active_f1.toFixed(dec_sep_energy), energy_active_f2.toFixed(dec_sep_energy),
+                  energy_active_f3.toFixed(dec_sep_energy), energy_active_total.toFixed(dec_sep_energy),
+                  energy_apar_f1.toFixed(dec_sep_energy), energy_apar_f2.toFixed(dec_sep_energy),
+                  energy_apar_f3.toFixed(dec_sep_energy), energy_apar_total.toFixed(dec_sep_energy),
+                  energy_reactive_f1.toFixed(dec_sep_energy), energy_reactive_f2.toFixed(dec_sep_energy),
+                  energy_reactive_f3.toFixed(dec_sep_energy), energy_reactive_total.toFixed(dec_sep_energy),
+                  "", "", "", "",
+                  pot_appar_f1.toFixed(dec_sep_all), pot_appar_f2.toFixed(dec_sep_all),
+                  pot_appar_f3.toFixed(dec_sep_all), pot_apar_total.toFixed(dec_sep_all),
+                  pot_active_f1.toFixed(dec_sep_all), pot_active_f2.toFixed(dec_sep_all),
+                  pot_active_f3.toFixed(dec_sep_all), pot_active_total.toFixed(dec_sep_all),
+                  pot_reactive_f1.toFixed(dec_sep_all), pot_reactive_f2.toFixed(dec_sep_all),
+                  pot_reactive_f3.toFixed(dec_sep_all), pot_reactive_total.toFixed(dec_sep_all),
+                  "",
+                  ten_f1_f2.toFixed(dec_sep_all), ten_f2_f3.toFixed(dec_sep_all), ten_f3_f1.toFixed(dec_sep_all),
+                  "", "", "", corr_total.toFixed(dec_sep_all)]);
 
       val_idx += 1;
     }
