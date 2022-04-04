@@ -1,0 +1,70 @@
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 35px
+}
+
+th {
+  text-align: center;
+  color: #575757;
+}
+
+td {
+  text-align: center;
+}
+
+.row {
+  margin-top: 98px;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+#form {
+  margin: 20px 0 20px 0px;
+}
+
+#input_labels {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#val_labels {
+
+}
+
+#button-sec {
+  margin: 10px 0 0px;
+}
+
+#data {
+  width: 180px;
+}
+
+#div_scrowll_input {
+  overflow-y:auto;
+  height: 300px;
+  margin: 10px 0px 0px 0px;
+  border: 2px solid #a8a8a8;
+}
+
+#div_scrowll_validation {
+  overflow-y:auto;
+  height: 300px;
+  margin: 10px 0px 100px 0px;
+  border: 2px solid #a8a8a8;
+}
+
+#name {
+  text-align: center;
+  margin: -60px;
+  color: #21252969;
+  font-style: oblique;
+}
