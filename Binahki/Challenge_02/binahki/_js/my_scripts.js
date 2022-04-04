@@ -1,20 +1,27 @@
+// References
+// https://www.educabras.com/ensino_medio/materia/fisica/mecanica_cinematica/aulas/potencia_e_energia
+// https://www.saladaeletrica.com.br/potencia-eletrica-podcast-002/
+// https://www.youtube.com/watch?v=gBg02pMrkpk&list=PLf1lowbdbFIACPDS1CvJNiVa4_nQEoFwB&index=23
+// https://www.mundodaeletrica.com.br/formulas-de-potencia-quais-sao/
+
+
 // OPEN A DIALOG TO LOAD THE INPUT OR VALIDATION FILE - WORKING YET
-function importData(id) {
+function importData() {
+
   let input = document.createElement('input');
   input.type = 'file';
   input.onchange = _ => {
-    // you can use this method to get file and perform respective operations
-            let files =   Array.from(input.files);
-            console.log(id);
-            document.getElementById(id).value=files[0].name;
-        };
+    console.log("AAAA");
+    let files = Array.from(input.files);
+    console.log(files);
+    // document.getElementById().value=files[0].name;
+  };
   input.click();
 };
 
 
-
 // OPEN FILES, POPULATE AND CALCULATION EXECUTION
-function runEnter() {
+function loadData() {
 
   // OPEN INPUT FILE
   var data_input;
@@ -78,8 +85,11 @@ function generateHtmlTableValidation(body_id, data, calc_data) {
       for(var j = 0; j < data[i].length; j++){
         // THE SIZE OF INPUT DATA IS LESS THAN THE TOTAL VALIDATION DATA
         if(i < calc_data.length){
+          // WE SHOW BOTH DATA, VALIDATION AND CALCULATED DATA, AND USE GREEN TO
+          // TO DIFFERENTIATE THE CALCULATED DATA
           result += "<td><p>"+data[i][j]+"</p>  <p style='color: #007F00'>" + calc_data[i-init_val][j] +"</p></td>";
         }
+        // IF NOT EXISTS MORE INPUT DATA ONLY ADD VALIDATION DATA ON HMTL PAGE
         else{
           result += "<td>"+data[i][j]+"</td>"
         }
@@ -93,37 +103,43 @@ function generateHtmlTableValidation(body_id, data, calc_data) {
   }
 };
 
-function calculateIndeces(corr_array, ten_array, corr_neutro, factor_array){
+function calculateIndeces(corr_array, ten_array, corr_neutral, factor_array){
 
 }
 
 function calculate(data_val, data_input){
 
+  // THE data_val ARRAY HAVE DATA ON INDEX 0 AND 1 THAT WE NOT WANT, THEN INITIATE
+  // THE INDEX WITH 2, THE CORRECT FIRST DATA
   var val_idx = 2;
+
+  // RESULT ARRAY
   var result = [];
   for(var i=1; i < data_input.length; i++){
 
     // GET THE INPUT CORRENT AND FASE VOLTAGE VALUES
-    var corr_neutro = parseFloat(data_input[i][1]);
-    var corr_f1 = parseFloat(data_input[i][2]);
-    var corr_f2 = parseFloat(data_input[i][3]);
-    var corr_f3 = parseFloat(data_input[i][4]);
-    var ten_f1 = parseFloat(data_input[i][5]);
-    var ten_f2 = parseFloat(data_input[i][6]);
-    var ten_f3 = parseFloat(data_input[i][7]);
+    var corr_neutral = parseFloat(data_input[i][1]);   // NEUTRAL CORRENT
+    var corr_f1 = parseFloat(data_input[i][2]);        // CORRENT FASE 1
+    var corr_f2 = parseFloat(data_input[i][3]);        // CORRENT FASE 2
+    var corr_f3 = parseFloat(data_input[i][4]);        // CORRENT FASE 3
+    var ten_f1 = parseFloat(data_input[i][5]);         // TENSION FASE 1
+    var ten_f2 = parseFloat(data_input[i][6]);         // TENSION FASE 2
+    var ten_f3 = parseFloat(data_input[i][7]);         // TENSION FASE 3
 
+    // TOTAL CORRENT
     var corr_total = corr_f1 + corr_f2 + corr_f3;
 
-    if(corr_neutro){
+    // IF NOT EXISTS DATA INSIDE ANY INPUT ITEM NOT CALCULATE THE GO TO NEXT ROW
+    if(corr_neutral){
       // THE TIME VARIATION IS ABOUT 20s, IN HOURS IS EQUAL TO 0.005555
       var time = 0.0055555;
 
       // GET FACTOR VALUES ON VALIDATION DATASET, IT COME WITH "," DECIMAL SEPARTOR,
-      // WE NEED TO REPLACE BY "."
-      var factor_f1 = parseFloat(data_val[val_idx][13].replace(",", "."));
-      var factor_f2 = parseFloat(data_val[val_idx][14].replace(",", "."));
-      var factor_f3 = parseFloat(data_val[val_idx][15].replace(",", "."));
-      var factor_total = parseFloat(data_val[val_idx][16].replace(",", "."));
+      // WE NEED TO REPLACE FOR "."
+      var factor_f1 = parseFloat(data_val[val_idx][13].replace(",", "."));    // FACTOR FASE 1
+      var factor_f2 = parseFloat(data_val[val_idx][14].replace(",", "."));    // FACTOR FASE 2
+      var factor_f3 = parseFloat(data_val[val_idx][15].replace(",", "."));    // FACTOR FASE 3
+      var factor_total = parseFloat(data_val[val_idx][16].replace(",", ".")); // FACTOR TOTAL
 
       // APPARENT POTENCY CALCULATION
       // potencia_apar_fase = tensao_fase * corrent_fase
@@ -144,14 +160,17 @@ function calculate(data_val, data_input){
       var pot_reactive_f3 = Math.sqrt((pot_appar_f3 ** 2) - (pot_active_f3 ** 2))
 
       // CALCULATE THE ENERGY FOR ACTIVE, REACTIVE AND APPARENT
+      // ACTIVE ENERGY
       var energy_active_f1 = time * (pot_active_f1/1000.0);
       var energy_active_f2 = time * (pot_active_f2/1000.0);
       var energy_active_f3 = time * (pot_active_f3/1000.0);
 
+      // APPARENT ENERGY
       var energy_apar_f1 = time * (pot_appar_f1/1000.0);
       var energy_apar_f2 = time * (pot_appar_f2/1000.0);
       var energy_apar_f3 = time * (pot_appar_f3/1000.0);
 
+      // REACTIVE ENERGY
       var energy_reactive_f1 = time * (pot_reactive_f1/1000.0);
       var energy_reactive_f2 = time * (pot_reactive_f2/1000.0);
       var energy_reactive_f3 = time * (pot_reactive_f3/1000.0);
@@ -169,26 +188,29 @@ function calculate(data_val, data_input){
       var ten_f2_f3 = ten_f2 * Math.sqrt(3);
       var ten_f3_f1 = ten_f3 * Math.sqrt(3);
 
-      var dec_sep_energy = 4;
-      var dec_sep_all = 2;
+      // DECIMAL SEPARATOR SIZE. USED ONLY TO SHOW THE DATA ON HTML
+      var decimal_sep_energy = 4;
+      var decimal_sep_all = 2;
 
-      result.push(["", energy_active_f1.toFixed(dec_sep_energy), energy_active_f2.toFixed(dec_sep_energy),
-                  energy_active_f3.toFixed(dec_sep_energy), energy_active_total.toFixed(dec_sep_energy),
-                  energy_apar_f1.toFixed(dec_sep_energy), energy_apar_f2.toFixed(dec_sep_energy),
-                  energy_apar_f3.toFixed(dec_sep_energy), energy_apar_total.toFixed(dec_sep_energy),
-                  energy_reactive_f1.toFixed(dec_sep_energy), energy_reactive_f2.toFixed(dec_sep_energy),
-                  energy_reactive_f3.toFixed(dec_sep_energy), energy_reactive_total.toFixed(dec_sep_energy),
+      // APPEND THE RESULT CALCULATION TO result ARRAY
+      result.push(["", energy_active_f1.toFixed(decimal_sep_energy), energy_active_f2.toFixed(decimal_sep_energy),
+                  energy_active_f3.toFixed(decimal_sep_energy), energy_active_total.toFixed(decimal_sep_energy),
+                  energy_apar_f1.toFixed(decimal_sep_energy), energy_apar_f2.toFixed(decimal_sep_energy),
+                  energy_apar_f3.toFixed(decimal_sep_energy), energy_apar_total.toFixed(decimal_sep_energy),
+                  energy_reactive_f1.toFixed(decimal_sep_energy), energy_reactive_f2.toFixed(decimal_sep_energy),
+                  energy_reactive_f3.toFixed(decimal_sep_energy), energy_reactive_total.toFixed(decimal_sep_energy),
                   "", "", "", "",
-                  pot_appar_f1.toFixed(dec_sep_all), pot_appar_f2.toFixed(dec_sep_all),
-                  pot_appar_f3.toFixed(dec_sep_all), pot_apar_total.toFixed(dec_sep_all),
-                  pot_active_f1.toFixed(dec_sep_all), pot_active_f2.toFixed(dec_sep_all),
-                  pot_active_f3.toFixed(dec_sep_all), pot_active_total.toFixed(dec_sep_all),
-                  pot_reactive_f1.toFixed(dec_sep_all), pot_reactive_f2.toFixed(dec_sep_all),
-                  pot_reactive_f3.toFixed(dec_sep_all), pot_reactive_total.toFixed(dec_sep_all),
+                  pot_appar_f1.toFixed(decimal_sep_all), pot_appar_f2.toFixed(decimal_sep_all),
+                  pot_appar_f3.toFixed(decimal_sep_all), pot_apar_total.toFixed(decimal_sep_all),
+                  pot_active_f1.toFixed(decimal_sep_all), pot_active_f2.toFixed(decimal_sep_all),
+                  pot_active_f3.toFixed(decimal_sep_all), pot_active_total.toFixed(decimal_sep_all),
+                  pot_reactive_f1.toFixed(decimal_sep_all), pot_reactive_f2.toFixed(decimal_sep_all),
+                  pot_reactive_f3.toFixed(decimal_sep_all), pot_reactive_total.toFixed(decimal_sep_all),
                   "",
-                  ten_f1_f2.toFixed(dec_sep_all), ten_f2_f3.toFixed(dec_sep_all), ten_f3_f1.toFixed(dec_sep_all),
-                  "", "", "", corr_total.toFixed(dec_sep_all)]);
+                  ten_f1_f2.toFixed(decimal_sep_all), ten_f2_f3.toFixed(decimal_sep_all), ten_f3_f1.toFixed(decimal_sep_all),
+                  "", "", "", corr_total.toFixed(decimal_sep_all)]);
 
+      // INCREMENT THE VALIDATION INDEX
       val_idx += 1;
     }
   }

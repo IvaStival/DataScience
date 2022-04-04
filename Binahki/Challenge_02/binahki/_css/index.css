@@ -1,5 +1,5 @@
 button {
-  background-color: #4CAF50; /* Green */
+  background-color: #245ca6; /* Binahki blue */
   border: none;
   color: white;
   padding: 0px 15px;
@@ -19,6 +19,12 @@ td {
   text-align: center;
 }
 
+.title {
+  text-align: center;
+  font-size: 50px;
+  color: #245ca6;
+}
+
 .row {
   margin-top: 98px;
 }
@@ -27,13 +33,34 @@ td {
   max-width: 1400px;
 }
 
+#user-input1 {
+  width: 300px;
+  display: initial;
+}
+
+#user-input2 {
+  width: 300px;
+  display: initial;
+}
+
 #form {
   margin: 20px 0 20px 0px;
 }
 
-#input_labels {
+#input_labels1 {
   margin-top: 10px;
   margin-bottom: 10px;
+  float: left;
+  margin-right: 10px;
+  display: inherit;
+
+}
+
+#input_labels2 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  float: left;
+  margin-right: 10px;
 }
 
 #val_labels {
@@ -41,7 +68,9 @@ td {
 }
 
 #button-sec {
-  margin: 10px 0 0px;
+  margin: -2px 0 0px;
+  height: 38px;
+
 }
 
 #data {
@@ -50,14 +79,14 @@ td {
 
 #div_scrowll_input {
   overflow-y:auto;
-  height: 300px;
+  height: 500px;
   margin: 10px 0px 0px 0px;
   border: 2px solid #a8a8a8;
 }
 
 #div_scrowll_validation {
   overflow-y:auto;
-  height: 300px;
+  height: 500px;
   margin: 10px 0px 100px 0px;
   border: 2px solid #a8a8a8;
 }
